@@ -1,25 +1,56 @@
 {
     "items": [
-        {
-            "locations": [
-                {"id": 1, "name": "Location 1", "shortName": "Loc1"}
-            ],
-            "albums": [
-                {"id": 1, "title": "Album 1", "description": "Description 1", "viewCount": 100, "locationId": 1}
-            ],
-            "members": [
-                {"id": 1, "name": "John Doe", "phoneNumber": "123-456-7890", "email": "john@example.com", "address": "123 Main St", "locationId": 1}
-            ],
-            "photos": [
-                {"id": 1, "title": "Photo 1", "description": "Description 1", "privacy": "Private", "viewCount": 50, "locationId": 1}
-            ],
-            "tags": [
-                {"id": 1, "title": "Tag 1"}
-            ],
-            "comments": [
-                {"id": 1, "postDate": "2024-02-10", "content": "Great photo!", "photoId": 1}
-            ]
-        }
-
+    {
+  "Location": {
+    "id": "integer",
+    "Name": "varchar(200)",
+    "ShortName": "varchar(200)"
+  },
+  "Album": {
+    "Id": "integer",
+    "Title": "varchar",
+    "Description": "integer",
+    "View": "integer",
+    "LocationId": {
+      "type": "integer",
+      "references": "Location.id"
+    }
+  },
+  "Members": {
+    "Id": "integer",
+    "Name": "varchar(250)",
+    "PhoneNumber": "varchar(20)",
+    "Email": "varchar(200)",
+    "Address": "varchar(250)",
+    "LocationId": {
+      "type": "integer",
+      "references": "Location.id"
+    }
+  },
+  "Photo": {
+    "Id": "integer",
+    "Title": "varchar(120)",
+    "Description": "varchar(250)",
+    "Privacy": "varchar(20)",
+    "View": "integer",
+    "LocationId": {
+      "type": "integer",
+      "references": "Location.id"
+    }
+  },
+  "Tag": {
+    "Id": "integer",
+    "Title": "integer"
+  },
+  "Comment": {
+    "Id": "integer",
+    "PostDate": "date",
+    "Content": "text",
+    "PhotoId": {
+      "type": "integer",
+      "references": "Photo.Id"
+    }
+  }
+}
     ]
 }
